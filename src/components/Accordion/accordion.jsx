@@ -14,7 +14,6 @@ class Accordion extends React.Component {
   render() {
     const accordion = this.state.accordion;
     const header = this.props.header;
-    const text = this.props.text;
     const panelState = accordion ? 'visible' : 'hidden';
     const icon = accordion ? <i className="fa fa-minus" /> : <i className="fa fa-plus" />;
     const contentClass = `ctdo-accordion-panel--${panelState}`;

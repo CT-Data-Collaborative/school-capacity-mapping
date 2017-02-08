@@ -7,5 +7,7 @@
 
   .ctdl-datasidebar-sidebar {
     @include span-columns(4 of 12);
+    height: calc(100vh - 7rem);
+    overflow-y: scroll;
   }
 }

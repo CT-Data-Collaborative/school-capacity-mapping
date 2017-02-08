@@ -17,7 +17,6 @@ class Sidebar extends React.Component {
     if (this.props.selectedSchool.length === 0) {
       return (<span />)
     } else {
-      const gradesInSchool = this.props.selectedSchool.grades.map(grade => <span key={grade}>{grade.replace('grade_', '')}, </span>);
       const capacityElements = [
         { grade: 'Elementary', fill: '#9EDDFC' },
         { grade: 'Middle', fill: '#63D1F4' },
@@ -72,11 +71,14 @@ class Sidebar extends React.Component {
         { grade: e, fill: enrollmentColors[i] }
       ));
 
+      const gradesInSchool = Grades.join(', ');
       return (
         <div>
-          <span className="ctda-label-name">School: {this.props.selectedSchool.name}</span>
-          <span className="ctda-label-name">District: {this.props.selectedSchool.district_name}</span>
-          <p>Grades: {gradesInSchool}</p>
+          <Accordion header="School Information">
+            <div className="ctda-label-name">School: <span>{this.props.selectedSchool.name}</span></div>
+            <div className="ctda-label-name">District: <span>{this.props.selectedSchool.district_name}</span></div>
+            <div className="ctda-label-name">Grades: <span>{gradesInSchool}</span></div>
+          </Accordion>
           <Accordion header="District Capacity by Grade Range">
             <StackedBar
               data={this.props.selectedSchool.capacity}
@@ -84,7 +86,7 @@ class Sidebar extends React.Component {
               title=""
             />
           </Accordion>
-          <Accordion header="School Enrollment by Grade">
+          <Accordion key={this.props.selectedSchool.name} header="School Enrollment by Grade">
             <StackedBar
               data={enrollmentData}
               elements={enrollmentElements}
