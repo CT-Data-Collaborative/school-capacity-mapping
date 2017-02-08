@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
 
   infoPanel() {
     if (this.props.selectedSchool.length === 0) {
-      return (<p/>)
+      return (<span />)
     } else {
       const gradesInSchool = this.props.selectedSchool.grades.map(grade => <span key={grade}>{grade.replace('grade_', '')}, </span>);
       const capacityElements = [
@@ -40,10 +40,38 @@ class Sidebar extends React.Component {
         'Grade 11',
         'Grade 12',
       ];
+      const Grades = [];
+      const enrollmentData = this.props.selectedSchool.school_enrollment;
+
+      enrollmentData.forEach((year) => {
+        Object.keys(year).forEach((key) => {
+          let keyAdd = true;
+          const obj = year[key];
+          if (obj === -9999) {
+            // eslint-disable-next-line
+            year[key] = 5;
+          }
+          if (obj === 0) {
+            // eslint-disable-next-line
+            delete year[key];
+            keyAdd = false;
+          }
+          if (Grades.includes(key)) {
+          } else if (key !== 'Year' && key !== 'Total' && keyAdd) {
+            Grades.push(key);
+          }
+        });
+      });
+      Grades.sort((a, b) => {
+        const aPos = enrollmentGrades.indexOf(a);
+        const bPos = enrollmentGrades.indexOf(b);
+        return aPos - bPos;
+      });
       const enrollmentColors = chroma.scale(['#9EDDFC', '#4670A7']).colors(enrollmentGrades.length);
-      const enrollmentElements = enrollmentGrades.map((e, i) => (
+      const enrollmentElements = Grades.map((e, i) => (
         { grade: e, fill: enrollmentColors[i] }
       ));
+
       return (
         <div>
           <span className="ctda-label-name">School: {this.props.selectedSchool.name}</span>
@@ -58,7 +86,7 @@ class Sidebar extends React.Component {
           </Accordion>
           <Accordion header="School Enrollment by Grade">
             <StackedBar
-              data={this.props.selectedSchool.school_enrollment}
+              data={enrollmentData}
               elements={enrollmentElements}
             />
           </Accordion>

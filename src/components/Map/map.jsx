@@ -15,8 +15,11 @@ class CTDataMap extends Component {
       currentZoomLevel: zoomLevel,
       towns: [],
       schools: [],
-      schoolFilter: props.schoolFilter
+      schoolFilter: props.schoolFilter,
+      highlightedTown: '',
     };
+    this.onEachSchoolFeature = this.onEachSchoolFeature.bind(this);
+    this.onEachTownFeature = this.onEachTownFeature.bind(this);
   }
 
   componentDidMount() {
@@ -49,21 +52,15 @@ class CTDataMap extends Component {
   handleClick (e) {
     console.log(e.properties);
   }
-  // getColor (d) {
-  //   return d === 1 ? '#800026' :
-  //          d === 0 ? '#FD8D3C' :
-  //                     '#FFEDA0';
-  // }
-  //
 
   style(feature) {
     return {
-      fillColor: '#f03',
+      fillColor: '#1EACF1',
       weight: 2,
       opacity: 1,
       color: 'white',
       dashArray: '3',
-      fillOpacity: 0.7
+      fillOpacity: 0.4
     };
   }
 
@@ -72,9 +69,27 @@ class CTDataMap extends Component {
     this.props.handleSchoolClick(layer.feature.properties);
   }
 
-  onEachFeature(feature, layer) {
+  hoverSchool(e) {
+    const layer = e.target;
+    this.setState({highlightedTown: layer.feature.properties.NAME10});
+    this.props.handleTownHover(layer.feature.properties.NAME10);
+  }
+
+  finishHoverSchool(e) {
+    this.setState({highlightedTown: ''});
+    this.props.handleTownHover('');
+  }
+
+  onEachTownFeature(feature, layer) {
     layer.on({
-      click: this.clickToFeature.bind(this)
+      mouseover: this.hoverSchool.bind(this),
+      mouseout: this.finishHoverSchool.bind(this),
+    });
+  }
+
+  onEachSchoolFeature(feature, layer) {
+    layer.on({
+      click: this.clickToFeature.bind(this),
     });
   }
 
@@ -83,18 +98,26 @@ class CTDataMap extends Component {
     const schoolKey = `schools_${this.state.schools.length}`;
     const townsGEOJSON = { type: 'FeatureCollection', features: this.state.towns };
     const townsKey = `towns_${this.state.towns.length}`;
+    const highlightedTown = this.state.highlightedTown;
+    const townStr = highlightedTown === '' ? <span /> : <span>Current Town: {highlightedTown}</span>;
     return (
       <div className="ctdl-datasidebar-main">
         <Map ref={m => { this.leafletMap = m; }} center={mapCenter} zoom={zoomLevel}>
           <TileLayer attribution={arcgisAttr} url={arcgisTiles} />
-          <GeoJSON key={townsKey} data={townsGEOJSON} style={this.style} />
           <GeoJSON
-            onEachFeature={this.onEachFeature.bind(this)}
+            key={townsKey}
+            data={townsGEOJSON}
+            style={this.style}
+            onEachFeature={this.onEachTownFeature}
+          />
+          <GeoJSON
+            onEachFeature={this.onEachSchoolFeature}
             key={schoolKey}
             data={schoolGEOJSON}
           />
         <Control position="topright">
           <div className="ctdm-map-select">
+            {townStr}
             <SelectForm onChange={this.props.onChange} schoolFilter={this.props.schoolFilter} />
           </div>
         </Control>

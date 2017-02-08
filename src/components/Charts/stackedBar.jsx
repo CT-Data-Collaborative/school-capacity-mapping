@@ -23,7 +23,7 @@ class StackedBar extends React.Component {
           <BarChart data={data} margin={margins}>
             <XAxis dataKey="Year" />
             <YAxis />
-            <Tooltip />
+            <Tooltip offset={0} />
             <Legend />
             {elements.map(e => <Bar key={e.grade} dataKey={e.grade} stackId="a" fill={e.fill} />)}
           </BarChart>

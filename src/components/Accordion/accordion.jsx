@@ -16,11 +16,13 @@ class Accordion extends React.Component {
     const header = this.props.header;
     const text = this.props.text;
     const panelState = accordion ? 'visible' : 'hidden';
+    const icon = accordion ? <i className="fa fa-minus" /> : <i className="fa fa-plus" />;
     const contentClass = `ctdo-accordion-panel--${panelState}`;
     return (
       <div className="ctdo-accordion">
         <button className="ctdo-accordion-header" onClick={this.toggle}>
           {header}
+          <span className="ctda-accordion-icon">{icon}</span>
         </button>
         <div className={contentClass}>
           {this.props.children}

@@ -17,9 +17,11 @@ class Content extends React.Component {
       schoolPoints: [],
       schoolFilter: 'EASTCONN',
       selectedSchool: [],
+      hoverTown: '',
     };
     this.handleRescSelect = this.handleRescSelect.bind(this);
     this.handleSelectedSchool = this.handleSelectedSchool.bind(this);
+    this.handleTownHover = this.handleTownHover.bind(this);
   }
 
   componentWillMount() {
@@ -38,8 +40,11 @@ class Content extends React.Component {
   }
 
   handleSelectedSchool(value) {
-    console.log(value);
     this.setState({ selectedSchool: value});
+  }
+
+  handleTownHover(value) {
+    // this.setState({ hoverTown: value});
   }
 
   render() {
@@ -54,6 +59,7 @@ class Content extends React.Component {
             onChange={this.handleRescSelect}
             schoolFilter={this.state.schoolFilter}
             handleSchoolClick={this.handleSelectedSchool}
+            handleTownHover={this.handleTownHover}
           />
           <Sidebar selectedSchool={this.state.selectedSchool} />
         </div>
