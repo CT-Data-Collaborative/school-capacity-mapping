@@ -1,0 +1,21 @@
+.ctdm-ctdata-logo {
+  font-weight: $light;
+  padding-right: .5rem;
+
+  .ctda-logo-circle {
+      margin-top: .25rem;
+      margin-right: .25rem;
+      border-radius: 50%;
+      width: 1em;
+      height: 1em;
+      float: right;
+  }
+
+}
+
+.ctdm-ctdata-logo:after {
+  content: "Created by Connecticut Data Collaborative";
+  font-size: 1.5 rem;
+  padding-right: .5rem;
+  margin-top: -.2rem;
+}

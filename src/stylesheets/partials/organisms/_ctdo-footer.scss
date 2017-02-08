@@ -1,0 +1,31 @@
+.ctdo-footer {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    height: calc(3rem);
+    background: #333;
+    color: white;
+    width: 100%;
+    font-family: $base-font-family;
+
+    .copyright p {
+        width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size:1em;
+        color: lightgrey;
+        padding-top: .75rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ctdo-footer {
+        .copyright p {
+            font-size: .75rem;
+            padding-left: .5rem;
+            padding-right: .5rem;
+        }
+    }
+}

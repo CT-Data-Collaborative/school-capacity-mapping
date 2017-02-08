@@ -1,0 +1,5 @@
+node-sass \
+--include-path /Users/scuerda/Work/Projects/_OTHER/edmapping/school-capacity-mapping/node_modules/bourbon/app/assets/stylesheets/ \
+--include-path /Users/scuerda/Work/Projects/_OTHER/edmapping/school-capacity-mapping/node_modules/bourbon-neat/app/assets/stylesheets/ \
+-o src \
+src/stylesheets/index.scss

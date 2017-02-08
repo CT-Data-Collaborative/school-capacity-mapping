@@ -1,0 +1,11 @@
+.ctdl-datasidebar {
+  @include span-columns(12);
+
+  .ctdl-datasidebar-main {
+    @include span-columns(8 of 12);
+  }
+
+  .ctdl-datasidebar-sidebar {
+    @include span-columns(4 of 12);
+  }
+}

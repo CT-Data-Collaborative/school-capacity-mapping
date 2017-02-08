@@ -1,0 +1,262 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.extra-dark-blue {
+  background: #4670A7; }
+
+.dark-blue {
+  background: #1EACF1; }
+
+.medium-blue {
+  background: #63D1F4; }
+
+.light-blue {
+  background: #9EDDFC; }
+
+.extra-light-blue {
+  background: #CDEFFE; }
+
+body {
+  color: #4A4A4A;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1em;
+  line-height: 1.5; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.333em;
+  line-height: 1.2;
+  margin: 0 0 0.75em; }
+
+h1 {
+  font-size: 2.48832em; }
+
+h2 {
+  font-size: 2.0736em; }
+
+h3 {
+  font-size: 1.728em; }
+
+h4 {
+  font-size: 1.44em; }
+
+h5 {
+  font-size: 1.2em; }
+
+h6 {
+  font-size: 1em; }
+
+p {
+  margin: 0 0 0.75em; }
+
+a {
+  color: #1EACF1;
+  text-decoration: none;
+  transition: color 150ms ease; }
+  a:active, a:focus, a:hover {
+    color: #1781b5; }
+
+hr {
+  border-bottom: 1px solid #DEDEDE;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0; }
+
+.ctda-header-list-item {
+  float: left;
+  margin: .4rem .5rem .4rem .5rem; }
+
+a.ctda-link {
+  color: #d2e4e7;
+  text-decoration: none;
+  padding-left: 0;
+  padding-right: 0; }
+
+a.ctda-link:hover {
+  color: #fff;
+  text-decoration: none; }
+
+a.ctda-link__inverse > * {
+  color: #fff; }
+
+a.ctda-link__inverse:hover > * {
+  color: #d2e4e7; }
+
+.ctda-chart-title {
+  width: 80%;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1.25rem; }
+
+.ctda-header-title {
+  display: inline-block;
+  color: white;
+  font-size: 2rem;
+  padding-left: 3rem;
+  padding-top: .25rem; }
+
+.ctdm-header-list {
+  list-style-type: none;
+  margin: calc(1rem - 4px) 2rem 0 0;
+  padding: 0;
+  font: 100% "Roboto Condensed", sans-serif;
+  float: right; }
+
+.ctdm-ctdata-logo {
+  font-weight: 300;
+  padding-right: .5rem; }
+  .ctdm-ctdata-logo .ctda-logo-circle {
+    margin-top: .25rem;
+    margin-right: .25rem;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    float: right; }
+
+.ctdm-ctdata-logo:after {
+  content: "Created by Connecticut Data Collaborative";
+  font-size: 1.5 rem;
+  padding-right: .5rem;
+  margin-top: -.2rem; }
+
+.ctdm-map-select {
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: 4px;
+  border: 2px rgba(0, 0, 0, 0.2) solid; }
+  .ctdm-map-select label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.375em; }
+  .ctdm-map-select input,
+  .ctdm-map-select select,
+  .ctdm-map-select textarea {
+    display: block;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1em; }
+  .ctdm-map-select select {
+    margin-bottom: 0.75em;
+    width: 100%; }
+
+header.ctdo-header {
+  height: 4rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #4670A7;
+  border-radius: 0; }
+
+.ctdo-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(3rem);
+  background: #333;
+  color: white;
+  width: 100%;
+  font-family: "Roboto Condensed", sans-serif; }
+  .ctdo-footer .copyright p {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    color: lightgrey;
+    padding-top: .75rem; }
+
+@media screen and (max-width: 400px) {
+  .ctdo-footer .copyright p {
+    font-size: .75rem;
+    padding-left: .5rem;
+    padding-right: .5rem; } }
+
+.ctdo-accordion {
+  margin: 1rem 1rem 1rem 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 85%; }
+  .ctdo-accordion button.ctdo-accordion-header {
+    background-color: #ddd;
+    color: #444;
+    cursor: pointer;
+    padding: .5rem .5rem .5rem .75rem;
+    font-size: 1rem;
+    font-family: "Roboto Condensed", sans-serif;
+    width: 100%;
+    text-align: left;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    transition: 0.4s; }
+  .ctdo-accordion button.ctdo-accordion-header.active, .ctdo-accordion button.ctdo-accordion-header:hover {
+    background-color: #ddd; }
+  .ctdo-accordion .ctdo-accordion-panel--hidden {
+    padding: 0 18px;
+    background-color: white;
+    display: none; }
+  .ctdo-accordion .ctdo-accordion-panel--visible {
+    display: block;
+    background-color: white;
+    border-top: 1px solid black;
+    padding: .5rem 0 .5rem .5rem; }
+    .ctdo-accordion .ctdo-accordion-panel--visible p {
+      padding: 0;
+      margin: 0;
+      background-color: white; }
+
+.ctdl-fixed-header-footer {
+  max-width: 2400px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ececec;
+  overflow-y: auto;
+  height: calc(100vh - 7rem);
+  margin-top: 4rem; }
+  .ctdl-fixed-header-footer::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+.ctdl-datasidebar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .ctdl-datasidebar:last-child {
+    margin-right: 0; }
+  .ctdl-datasidebar .ctdl-datasidebar-main {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    .ctdl-datasidebar .ctdl-datasidebar-main:last-child {
+      margin-right: 0; }
+  .ctdl-datasidebar .ctdl-datasidebar-sidebar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .ctdl-datasidebar .ctdl-datasidebar-sidebar:last-child {
+      margin-right: 0; }
+
+.leaflet-container {
+  height: calc(100vh - 7rem);
+  width: 100%; }

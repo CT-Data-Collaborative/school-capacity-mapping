@@ -1,0 +1,23 @@
+.ctdm-map-select {
+  background-color: $white;
+  padding: .5rem;
+  border-radius: 4px;
+  border: 2px rgba(0,0,0,0.2) solid;
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: $small-spacing / 2;
+  }
+  input,
+  select,
+  textarea {
+    display: block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+  }
+
+  select {
+    margin-bottom: $small-spacing;
+    width: 100%;
+  }
+}

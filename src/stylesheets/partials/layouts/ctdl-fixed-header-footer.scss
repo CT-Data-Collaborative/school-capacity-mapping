@@ -1,0 +1,7 @@
+.ctdl-fixed-header-footer {
+    @include outer-container(2400px);
+    background: $extra-light-grey;
+    overflow-y: auto;
+    height: calc(100vh - 7rem);
+    margin-top: 4rem;
+}
